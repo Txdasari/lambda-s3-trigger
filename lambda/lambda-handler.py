@@ -6,7 +6,7 @@ import csv
 from datetime import date, datetime
 from botocore.config import Config
 
-print('Loading lambda function')
+print('Loading function')
 
 REPORT_REGION = "us-east-1"
 
@@ -86,10 +86,10 @@ def main(event, context):
             for finding in findings: 
                 count += 1
                 item = {}
-                item['ControlId'] = finding['ProductFields']['ControlId']
                 item['Description'] = finding['Title']
                 item['Severity'] = finding['Severity']['Label']
                 item['ResourceType'] = finding['Resources'][0]['Type']
+                item['ResourceId'] = finding['Resources'][0]['Id']
 
                 items.append(item)
                 if (len(keys) == 0):
