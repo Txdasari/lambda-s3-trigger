@@ -22,11 +22,11 @@ class LambdaS3TriggerStack(Stack):
 
 
         # create s3 bucket
-        bucket = s3.Bucket(self, "securityhubBucket")
+        bucket = s3.Bucket(self, "mylambdas3")
      
         Tags.of(self).add('Application', 'Test')
         Tags.of(self).add('Environment', 'Dev')
-        Tags.of(self).add('Name', 'TJTest')
+        Tags.of(self).add('Name', 'lambdawiths3')
         Tags.of(self).add('Team', 'CloudOpsDev')
 
         # create s3 notification for lambda function
